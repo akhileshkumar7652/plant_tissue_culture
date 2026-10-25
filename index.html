@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Plant Tissue Culture Laboratory – 3D Architectural Diorama</title>
+  <!-- Approved Tailwind CSS CDN -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8)); }
+    }
+    .pulse-pin {
+      animation: pulse-soft 2s infinite ease-in-out;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.4);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased font-sans min-h-screen flex flex-col select-none custom-scrollbar">
+
+  <!-- TOP APP HEADER -->
+  <header class="bg-slate-900/90 border-b border-emerald-500/30 backdrop-blur px-6 py-3.5 sticky top-0 z-40 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-white font-extrabold text-xl border border-emerald-300/30">
+        🔬
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] uppercase tracking-widest font-extrabold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            B.Tech Biotechnology Exhibition Project
+          </span>
+          <span class="text-xs text-slate-400">| Complete Facility Layout</span>
+        </div>
+        <h1 class="text-lg md:text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+          PLANT TISSUE CULTURE LABORATORY – <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">3D CUTAWAY ARCHITECTURAL MODEL</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="flex items-center gap-2 bg-slate-800/80 p-1 rounded-xl border border-slate-700 text-xs">
+      <button id="nav-diorama" onclick="switchMainTab('diorama')" class="px-3.5 py-1.5 rounded-lg font-bold bg-emerald-500 text-slate-950 shadow-md transition flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        3D Lab Diorama
+      </button>
+      <button id="nav-renders" onclick="switchMainTab('renders')" class="px-3.5 py-1.5 rounded-lg font-medium text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Exhibition Renders
+      </button>
+      <button id="nav-zones" onclick="switchMainTab('zones')" class="px-3.5 py-1.5 rounded-lg font-medium text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        6 Lab Functional Zones
+      </button>
+      <button id="nav-equipment" onclick="switchMainTab('equipment')" class="px-3.5 py-1.5 rounded-lg font-medium text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+        Equipment Catalog
+      </button>
+      <button id="nav-blueprint" onclick="switchMainTab('blueprint')" class="px-3.5 py-1.5 rounded-lg font-medium text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Cleanroom HVAC & Specs
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
+
+    <!-- TAB 1: 3D DIORAMA CANVAS VIEW -->
+    <section id="panel-diorama" class="flex-1 flex flex-col relative bg-slate-950 overflow-hidden">
+      
+      <!-- Top Overlay Controls: Camera & Lighting Simulation -->
+      <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2 bg-slate-900/85 backdrop-blur border border-slate-700/80 rounded-2xl p-2 text-xs shadow-2xl">
+        <span class="text-slate-400 font-bold px-2">Camera:</span>
+        <button onclick="setCamera('isometric')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition font-medium text-slate-200">
+          Isometric Cutaway
+        </button>
+        <button onclick="setCamera('front')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition font-medium text-slate-200">
+          Interior Eye-Level
+        </button>
+        <button onclick="setCamera('top')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition font-medium text-slate-200">
+          Architectural Floorplan
+        </button>
+        
+        <div class="h-4 w-px bg-slate-700 mx-1"></div>
+        
+        <!-- Lighting Mode Switcher -->
+        <span class="text-slate-400 font-bold px-1">Lighting:</span>
+        <button onclick="setLightingMode('daylight')" id="light-daylight" class="px-2.5 py-1 rounded-lg bg-emerald-500 text-slate-950 font-bold transition flex items-center gap-1">
+          ☀️ Worklight
+        </button>
+        <button onclick="setLightingMode('uv')" id="light-uv" class="px-2.5 py-1 rounded-lg bg-slate-800 text-purple-300 hover:bg-purple-900/50 transition flex items-center gap-1">
+          🟣 UV-C Sterilization
+        </button>
+        <button onclick="setLightingMode('grow')" id="light-grow" class="px-2.5 py-1 rounded-lg bg-slate-800 text-pink-300 hover:bg-pink-900/50 transition flex items-center gap-1">
+          🌸 Grow LEDs
+        </button>
+
+        <div class="h-4 w-px bg-slate-700 mx-1"></div>
+        <button onclick="toggleAutoRotate()" id="btn-autorotate" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-medium transition flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Auto-Rotate: ON
+        </button>
+      </div>
+
+      <!-- Quick Zone Selector (Bottom Bar) -->
+      <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-3 pointer-events-none">
+        <div class="bg-slate-900/90 backdrop-blur border border-slate-700/80 rounded-2xl p-2 flex items-center gap-1.5 shadow-2xl pointer-events-auto overflow-x-auto max-w-full custom-scrollbar">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-400 px-2 shrink-0">Zone Jump:</span>
+          <button onclick="focusZone(1)" class="zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0" data-zone="1">1. Media Prep Area</button>
+          <button onclick="focusZone(2)" class="zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0" data-zone="2">2. Washing & Autoclave</button>
+          <button onclick="focusZone(3)" class="zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0" data-zone="3">3. Inoculation (LAF)</button>
+          <button onclick="focusZone(4)" class="zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0" data-zone="4">4. Culture Room Racks</button>
+          <button onclick="focusZone(5)" class="zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0" data-zone="5">5. Growth Chamber</button>
+          <button onclick="focusZone(6)" class="zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0" data-zone="6">6. Microscope & Storage</button>
+        </div>
+
+        <div class="bg-slate-900/90 backdrop-blur border border-slate-700/80 rounded-2xl px-3.5 py-2 text-xs text-slate-300 shadow-2xl pointer-events-auto hidden md:flex items-center gap-2 shrink-0">
+          <span class="text-emerald-400 font-bold">💡 Orbit:</span> Click & drag | Scroll to zoom | Click 3D labels to inspect
+        </div>
+      </div>
+
+      <!-- Main HTML5 3D Canvas -->
+      <canvas id="labCanvas" class="w-full h-full cursor-grab active:cursor-grabbing block flex-1"></canvas>
+    </section>
+
+    <!-- RIGHT INSPECTOR & SCIENTIFIC SPECIFICATIONS DRAWER -->
+    <aside id="inspector-panel" class="w-full lg:w-96 bg-slate-900/95 border-l border-slate-800 flex flex-col shadow-2xl z-30 overflow-y-auto custom-scrollbar max-h-[50vh] lg:max-h-none">
+      <div id="inspector-content" class="p-6 space-y-6">
+        
+        <!-- Header -->
+        <div class="border-b border-slate-800 pb-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs uppercase font-extrabold tracking-wider text-emerald-400">Facility Engineering</span>
+            <span class="text-xs bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded-full font-mono">ISO 14644 Cleanroom</span>
+          </div>
+          <h2 id="inspect-title" class="text-xl font-bold text-white mt-2">Plant Tissue Culture Laboratory</h2>
+          <p id="inspect-subtitle" class="text-xs text-slate-400 mt-1">Complete facility layout & functional cleanroom zoning architecture.</p>
+        </div>
+
+        <!-- Dynamic Content Body -->
+        <div id="inspect-body" class="space-y-4 text-xs text-slate-300 leading-relaxed">
+          
+          <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/60 space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300 block">Cleanroom Design Philosophy</span>
+            <p>
+              A plant biotechnology tissue culture laboratory requires strict physical separation of procedures to prevent microbial contamination. Materials flow in a strict unidirection: <strong class="text-white">Washing &rarr; Media Prep &rarr; Autoclaving &rarr; Aseptic Inoculation &rarr; Incubation Culture Room &rarr; Hardening</strong>.
+            </p>
+          </div>
+
+          <!-- Cleanroom Pressure Cascade -->
+          <div class="bg-slate-800/40 rounded-xl p-4 border border-slate-700/40 space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-300 block">Positive Pressure Air Cascade</span>
+            <div class="grid grid-cols-2 gap-2 text-[11px]">
+              <div class="bg-slate-900/80 p-2 rounded border border-slate-800">
+                <span class="text-slate-400 block">Inoculation Room</span>
+                <span class="font-bold text-emerald-400 font-mono">+15 to +20 Pa</span>
+                <span class="text-[10px] text-slate-500 block">Highest Overpressure</span>
+              </div>
+              <div class="bg-slate-900/80 p-2 rounded border border-slate-800">
+                <span class="text-slate-400 block">Culture Room</span>
+                <span class="font-bold text-teal-400 font-mono">+10 Pa</span>
+                <span class="text-[10px] text-slate-500 block">Positive Pressure</span>
+              </div>
+              <div class="bg-slate-900/80 p-2 rounded border border-slate-800">
+                <span class="text-slate-400 block">Media Prep</span>
+                <span class="font-bold text-cyan-400 font-mono">+5 Pa</span>
+                <span class="text-[10px] text-slate-500 block">Intermediate</span>
+              </div>
+              <div class="bg-slate-900/80 p-2 rounded border border-slate-800">
+                <span class="text-slate-400 block">Washing / Autoclave</span>
+                <span class="font-bold text-amber-400 font-mono">-5 Pa / Exhaust</span>
+                <span class="text-[10px] text-slate-500 block">Steam Evacuation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Equipment Inventory at a Glance -->
+          <div class="border-t border-slate-800 pt-3">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">Essential Equipment Checklist</span>
+            <ul class="space-y-1.5 text-[11px] text-slate-300">
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <strong>Laminar Air Flow:</strong> Class 100 / ISO 5 sterile velocity $0.45 \text{ m/s}$</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <strong>Autoclave:</strong> Saturated steam $121^\circ\text{C}$ @ $15 \text{ psi}$ ($15\text{–}20\text{ min}$)</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <strong>Incubation Racks:</strong> LED spectrum ($450\text{ nm} + 660\text{ nm}$) timer 16h/8h</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <strong>Growth Chamber:</strong> Closed Phytotron ($25^\circ\text{C} \pm 0.5^\circ\text{C}$, $65\% \text{ RH}$)</li>
+              <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> <strong>Instrumentation:</strong> Digital balance, pH meter, magnetic hotplate, microscope</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Action Button -->
+        <div id="inspect-action" class="pt-2">
+          <button onclick="startFacilityTour()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Start Guided Lab Facility Tour
+          </button>
+        </div>
+
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- TAB 2: PHOTOREALISTIC EXHIBITION RENDERS VIEW -->
+  <section id="panel-renders" class="hidden flex-1 p-6 md:p-10 bg-slate-950 overflow-y-auto custom-scrollbar">
+    <div class="max-w-6xl mx-auto space-y-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">University Exhibition Showcase</span>
+          <h2 class="text-3xl font-extrabold text-white mt-3">3D Physical Laboratory Miniature Diorama</h2>
+          <p class="text-sm text-slate-400 mt-2">Ultra-detailed 3D architectural cutaway views suitable for college project display boards, flex banners, and viva presentations.</p>
+        </div>
+      </div>
+
+      <!-- Main Render Card -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl p-4 md:p-6 space-y-4">
+        <div class="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800">
+          <img id="lab-render-image" src="plant_tissue_culture_lab_model_1792904850424.jpg" alt="Plant Tissue Culture Laboratory 3D Diorama" class="w-full h-auto object-contain max-h-[75vh] mx-auto rounded-xl">
+          
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur border border-slate-700/80 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 text-xs">
+            <div>
+              <span class="font-bold text-white text-sm block">Complete Plant Tissue Culture Laboratory – Integrated Architectural Diorama</span>
+              <span class="text-slate-400">Features cutaway cleanroom walls, epoxy floor, laminar air flow bench, autoclave, multi-tier LED racks, media prep bench, growth chamber, microscope, and refrigerator.</span>
+            </div>
+            <a href="plant_tissue_culture_lab_model_1792904850424.jpg" target="_blank" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold flex items-center gap-2 transition shadow-lg">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              View Full Resolution (Print / Exhibition)
+            </a>
+          </div>
+        </div>
+
+        <!-- Key Features Checklist -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">1. Full Architectural Interior</span>
+            <p class="text-xs text-slate-300">Cleanroom walls with electrical trunking, seamless anti-static epoxy flooring, ceiling panel lights, and modular laboratory casework.</p>
+          </div>
+          <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block mb-1">2. Complete Equipment Suite</span>
+            <p class="text-xs text-slate-300">Class 100 Laminar Hood with flame burner, vertical pressure autoclave, digital balance with draft shield, pH meter, and magnetic stirrer.</p>
+          </div>
+          <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-1">3. Living Biological Cultures</span>
+            <p class="text-xs text-slate-300">Dozens of transparent borosilicate culture tubes and jars filled with amber MS agar medium showing proliferating callus, micro-shoots, and rooted plantlets.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 3: 6 FUNCTIONAL ZONES DEEP DIVE -->
+  <section id="panel-zones" class="hidden flex-1 p-6 md:p-10 bg-slate-950 overflow-y-auto custom-scrollbar">
+    <div class="max-w-6xl mx-auto space-y-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Laboratory Architecture & Zoning</span>
+        <h2 class="text-3xl font-extrabold text-white mt-3">The 6 Functional Zones of a Plant Tissue Culture Facility</h2>
+        <p class="text-sm text-slate-400 mt-2">Logical cleanroom compartmentalization designed to eliminate cross-contamination and streamline media preparation and culture maintenance.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="zones-full-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: COMPLETE EQUIPMENT CATALOG -->
+  <section id="panel-equipment" class="hidden flex-1 p-6 md:p-10 bg-slate-950 overflow-y-auto custom-scrollbar">
+    <div class="max-w-6xl mx-auto space-y-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">Biotechnology Instrumentation</span>
+        <h2 class="text-3xl font-extrabold text-white mt-3">Comprehensive Laboratory Equipment Catalog</h2>
+        <p class="text-sm text-slate-400 mt-2">Engineering principles, technical specifications, sterilization protocols, and operational parameters.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="equipment-full-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 5: CLEANROOM HVAC & PHYSICAL BLUEPRINT -->
+  <section id="panel-blueprint" class="hidden flex-1 p-6 md:p-10 bg-slate-950 overflow-y-auto custom-scrollbar">
+    <div class="max-w-5xl mx-auto space-y-8">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20">Engineering & Construction</span>
+        <h2 class="text-3xl font-extrabold text-white mt-3">Cleanroom HVAC Architecture & DIY Physical Model Guide</h2>
+        <p class="text-sm text-slate-400 mt-2">Technical standards for building a college exhibition model and industrial PTC cleanroom engineering guidelines.</p>
+      </div>
+
+      <!-- Cleanroom Classification Matrix -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 overflow-x-auto">
+        <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+          <span>🏢</span> Cleanroom Air Cleanliness Classification (ISO 14644-1 Standards)
+        </h3>
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400">
+              <th class="p-3">Zone / Room</th>
+              <th class="p-3">ISO Cleanliness Class</th>
+              <th class="p-3">Max Particles ($\ge 0.5 \ \mu\text{m/m}^3$)</th>
+              <th class="p-3">Air Changes / Hour (ACH)</th>
+              <th class="p-3">Differential Pressure</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 font-mono text-slate-300">
+            <tr>
+              <td class="p-3 font-bold text-emerald-400 font-sans">Laminar Flow Interior</td>
+              <td class="p-3 text-emerald-300">ISO Class 5 (Class 100)</td>
+              <td class="p-3">3,520</td>
+              <td class="p-3">Continuous Laminar</td>
+              <td class="p-3">+25 Pa (Local)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-cyan-400 font-sans">Inoculation Room</td>
+              <td class="p-3 text-cyan-300">ISO Class 7 (Class 10,000)</td>
+              <td class="p-3">352,000</td>
+              <td class="p-3">30 – 45 ACH</td>
+              <td class="p-3">+15 to +20 Pa</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-teal-400 font-sans">Culture Incubation Room</td>
+              <td class="p-3 text-teal-300">ISO Class 8 (Class 100,000)</td>
+              <td class="p-3">3,520,000</td>
+              <td class="p-3">15 – 25 ACH</td>
+              <td class="p-3">+10 Pa</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-amber-400 font-sans">Media Preparation Area</td>
+              <td class="p-3 text-amber-300">ISO Class 8 (Class 100,000)</td>
+              <td class="p-3">3,520,000</td>
+              <td class="p-3">15 – 20 ACH</td>
+              <td class="p-3">+5 Pa</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-slate-400 font-sans">Washing & Autoclave Area</td>
+              <td class="p-3 text-slate-400">Unclassified (Controlled)</td>
+              <td class="p-3">General filtered</td>
+              <td class="p-3">10 – 15 ACH (Exhaust)</td>
+              <td class="p-3">-5 Pa (Negative)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Physical Model Construction Blueprint -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">1</span>
+          <h4 class="text-sm font-bold text-white">Cutaway Room Shell</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Construct two adjacent back walls and a floor from 8mm foam-PVC (Forex) board ($70\text{ cm } \times 45\text{ cm } \times 30\text{ cm } H$). Leave the front and right sides open for an unobstructed isometric view. Cover the floor with glossy sky-blue vinyl to simulate cleanroom epoxy.
+          </p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-sm">2</span>
+          <h4 class="text-sm font-bold text-white">Benches & Equipment Props</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Craft workbenches using 5mm balsa wood or acrylic with gray vinyl tops. Fabricate the Laminar Hood from 2mm clear acrylic sheets. Use miniature glass homeopathic dram vials ($10\text{ mm} \times 45\text{ mm}$) filled with yellow-tinted epoxy resin for culture bottles.
+          </p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <span class="w-8 h-8 rounded-lg bg-pink-500/20 text-pink-400 font-bold flex items-center justify-center text-sm">3</span>
+          <h4 class="text-sm font-bold text-white">Triple-Mode LED Lighting</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Install 3 micro-circuits: (a) 6000K white micro-LEDs on the ceiling grid; (b) 400nm UV-blue LEDs inside the Laminar cabinet; (c) Pink/magenta plant grow LED tape under the culture rack shelves. Connect to a 3-gang rocker switch box on the baseboard.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT 3D ENGINE & UI LOGIC -->
+  <script>
+    // 6 FUNCTIONAL ZONES DATA
+    const zonesData = [
+      {
+        id: 1,
+        title: "Media Preparation Area",
+        badge: "Zone 01",
+        color: "#06b6d4",
+        summary: "Formulation, pH adjustment, and dispensing of Murashige & Skoog (MS) nutrient media, carbon sources, vitamins, and plant growth regulators.",
+        equipment: ["Digital Analytical Balance (0.0001g)", "Digital pH Meter (with 4.0/7.0 calibration)", "Magnetic Stirrer & Hot Plate", "Micropipette Carousel", "Borosilicate Glassware (Beakers, Cylinders, Flasks)", "Millipore Distilled Water Reservoir"],
+        cleanliness: "ISO Class 8 (Positive Pressure +5 Pa)",
+        sop: "Formulate basal salts & 30g/L sucrose, dissolve thoroughly using magnetic stirrer, adjust pH to 5.7–5.8 with 0.1M KOH/HCl, add 0.8% agar, heat to dissolve, dispense into culture jars before autoclaving.",
+        x: -280, y: 0, z: 80
+      },
+      {
+        id: 2,
+        title: "Washing & Sterilization Area",
+        badge: "Zone 02",
+        color: "#f59e0b",
+        summary: "Decontamination and washing of reusable borosilicate culture vessels, surgical instruments, and high-pressure steam autoclaving of culture media.",
+        equipment: ["Vertical Autoclave (121°C @ 15 psi)", "Heavy-duty Acid/Solvent Resistant Lab Sink", "Triple Gooseneck Water Taps", "Glassware Drying Pegboard Rack", "Clean Sterilized Foil Storage Shelves"],
+        cleanliness: "Controlled Non-classified (Negative Pressure -5 Pa with Steam Exhaust Hood)",
+        sop: "Glassware is washed with 1% laboratory detergent, rinsed 3x with tap water and 2x with distilled water, dried on pegboard, plugged with cotton or capped, wrapped in aluminum foil, and autoclaved at 121°C for 20 minutes.",
+        x: -280, y: 0, z: -180
+      },
+      {
+        id: 3,
+        title: "Inoculation / Aseptic Transfer Area",
+        badge: "Zone 03",
+        color: "#10b981",
+        summary: "The ultra-clean core cleanroom zone where explants are surface-sterilized, excised, and transferred onto sterile culture media without microbial contamination.",
+        equipment: ["Laminar Air Flow (LAF) Cabinet (Class 100 / ISO 5)", "0.3 µm HEPA Filter Module", "Germicidal UV-C Lamp (254 nm)", "Spirit Lamp / Glass Bead Sterilizer", "Fine Dissection Forceps & Scalpels", "Swivel Cleanroom Stool"],
+        cleanliness: "ISO Class 5 inside LAF / ISO Class 7 Room (+15 to +20 Pa Overpressure)",
+        sop: "Turn on LAF blower and UV light for 30 minutes before use. Turn OFF UV light. Wipe workbed with 70% ethanol. Flame-sterilize forceps and scalpel tips. Inoculate explants near flame. Flame vessel neck before recapping.",
+        x: 0, y: 0, z: -180
+      },
+      {
+        id: 4,
+        title: "Culture Room (Incubation Area)",
+        badge: "Zone 04",
+        color: "#ec4899",
+        summary: "Dedicated incubation room providing regulated photoperiod, light intensity, and constant temperature for callus proliferation, organogenesis, and plantlet regeneration.",
+        equipment: ["Multi-tier Culture Incubation Racks (4 tiers)", "Pink/Magenta (450nm/660nm) LED Grow Lights", "Automatic Electronic 16h/8h Timer", "Transparent Glass Culture Jars with Agar", "Wall-mounted Digital Thermo-Hygrometer"],
+        cleanliness: "ISO Class 8 Cleanroom (+10 Pa Positive Pressure, 25°C ± 2°C, 60–70% RH)",
+        sop: "Cultures are maintained at 25°C ± 2°C under a 16-hour light / 8-hour dark photoperiod (2500–3000 lux). Inspect jars weekly for signs of bacterial halos or fungal mycelium; immediately discard contaminated vessels.",
+        x: 280, y: 0, z: -160
+      },
+      {
+        id: 5,
+        title: "Growth Chamber Area (Phytotron)",
+        badge: "Zone 05",
+        color: "#8b5cf6",
+        summary: "Precision microprocessor-controlled environmental testing chamber capable of programming day/night temperature cycles, light steps, and relative humidity.",
+        equipment: ["Reach-in Plant Growth Chamber (Phytotron)", "Microprocessor Touchscreen PID Controller", "Ultrasonic Humidity Injection System", "Adjustable Internal LED Spectrum Shelves"],
+        cleanliness: "Enclosed Clean Micro-environment (25.0°C ± 0.5°C, 65% RH)",
+        sop: "Used for high-value research cultures, somatic embryogenesis maturation, and temperature-sensitive somaclonal selection programs.",
+        x: 320, y: 0, z: 80
+      },
+      {
+        id: 6,
+        title: "Microscope & Cold Storage Area",
+        badge: "Zone 06",
+        color: "#3b82f6",
+        summary: "Microscopic evaluation of cellular dedifferentiation, embryogenic callus structures, and cold banking of thermolabile hormones and stock solutions.",
+        equipment: ["Compound Binocular Laboratory Microscope", "Double-door Laboratory Refrigerator (4°C / -20°C Freezer)", "Reagent Storage Wall Cabinets", "Chemical Safety Eyewash Station"],
+        cleanliness: "ISO Class 8 Room Environment",
+        sop: "Inspect callus cell smears under 100x/400x for dense cytoplasmic embryogenic cells vs vacuolated non-embryogenic cells. Keep vitamins, antibiotics, IAA, and GA3 stored at -20°C in dark amber bottles.",
+        x: 20, y: 0, z: 80
+      }
+    ];
+
+    // EQUIPMENT CATALOG DATA
+    const equipmentCatalog = [
+      {
+        name: "Laminar Air Flow Cabinet",
+        zone: "Inoculation Area",
+        icon: "💨",
+        specs: "Vertical/Horizontal airflow, Class 100 (ISO 5), 99.97% efficient @ 0.3 µm HEPA filter, 254nm UV germicidal lamp, 0.45 m/s air velocity.",
+        desc: "Provides a sterile, particle-free laminar air curtain over the stainless steel workbed to prevent airborne microbial spores from settling onto open culture vessels during inoculation."
+      },
+      {
+        name: "Vertical Autoclave",
+        zone: "Sterilization Area",
+        icon: "♨️",
+        specs: "Saturated steam, 121°C (250°F) at 15 psi (1.05 kg/cm²), dual safety pop-valves, stainless steel 304 chamber, 15–20 min cycle time.",
+        desc: "Sterilizes culture media, glassware, distilled water, and dissecting instruments through high-pressure steam that coagulates and irreversibly denatures microbial proteins and endospores."
+      },
+      {
+        name: "Culture Incubation Racks",
+        zone: "Culture Room",
+        icon: "💡",
+        specs: "4-tier anti-rust powder-coated frame, tailored cool-white + 660nm deep-red LED fixtures, 16h light / 8h dark programmable cyclic timer.",
+        desc: "Houses hundreds of culture vessels under uniform illumination (2000–3000 lux) and stable temperature, stimulating chlorophyll synthesis and shoot morphogenesis."
+      },
+      {
+        name: "Controlled Plant Growth Chamber",
+        zone: "Growth Chamber Area",
+        icon: "🌡️",
+        specs: "PID microprocessor control (accuracy ±0.5°C), ultrasonic humidifier (50%–85% RH), variable daylight simulation.",
+        desc: "Shields sensitive plant tissue cultures from ambient room thermal drifts, providing precise microclimates for recalcitrant species and somatic embryo maturation."
+      },
+      {
+        name: "Digital Analytical Balance",
+        zone: "Media Prep Area",
+        icon: "⚖️",
+        specs: "Readability 0.0001 g (0.1 mg), electromagnetic force restoration sensor, glass draft shield enclosure, internal motorized calibration.",
+        desc: "Weighs micro-quantities of potent plant growth regulators (auxins, cytokinins) and micronutrient salts where even 0.5 mg variation alters morphogenesis."
+      },
+      {
+        name: "Digital pH Meter",
+        zone: "Media Prep Area",
+        icon: "🧪",
+        specs: "Range 0.00 to 14.00 pH, precision ±0.01 pH, automatic temperature compensation (ATC), gel-filled combination glass electrode.",
+        desc: "Accurately adjusts nutrient media to exactly pH 5.7 – 5.8 before autoclaving using dilute KOH and HCl to ensure proper agar polymerization and ion availability."
+      },
+      {
+        name: "Compound Binocular Microscope",
+        zone: "Microscope Area",
+        icon: "🔬",
+        specs: "Achromatic objective lenses (4x, 10x, 40x, 100x oil), coaxial coarse/fine focus, LED Koehler illumination, mechanical stage.",
+        desc: "Permits cytological examination of callus dedifferentiation, somatic embryogenesis stages (globular, heart, torpedo), and detection of endophytic contaminants."
+      },
+      {
+        name: "Laboratory Refrigerator (4°C / -20°C)",
+        zone: "Storage Area",
+        icon: "❄️",
+        specs: "Explosion-proof spark-free interior, dual digital temp displays (+4°C refrigerator / -20°C freezer compartment), audible alarm.",
+        desc: "Preserves heat-sensitive phytohormone stock solutions (IAA, IBA, 2,4-D, BAP, Kinetin), vitamins, antibiotics, and filter-sterilized enzymes from chemical degradation."
+      },
+      {
+        name: "Laboratory Sink & Glassware Washing Station",
+        zone: "Washing Area",
+        icon: "🚰",
+        specs: "Acid/alkali-resistant epoxy resin sink basin, dual gooseneck water mixers, stainless steel draining pegboard rack.",
+        desc: "Facilitates multi-stage washing of borosilicate culture bottles using phosphate-free biodegradable detergent and double-distilled water rinses."
+      }
+    ];
+
+    // 13 REQUIRED 3D LABELS WITH POINTER PINS
+    const labels3D = [
+      { text: "PLANT TISSUE CULTURE LABORATORY", x: 0, y: 220, z: -230, type: "title", color: "#34d399" },
+      { text: "Laminar Air Flow Cabinet", x: 0, y: 155, z: -180, zoneId: 3, color: "#10b981" },
+      { text: "Autoclave", x: -280, y: 145, z: -180, zoneId: 2, color: "#f59e0b" },
+      { text: "Media Preparation Area", x: -280, y: 110, z: 80, zoneId: 1, color: "#06b6d4" },
+      { text: "Washing Area", x: -350, y: 110, z: -120, zoneId: 2, color: "#f59e0b" },
+      { text: "Inoculation Area", x: 70, y: 110, z: -180, zoneId: 3, color: "#10b981" },
+      { text: "Culture Room", x: 280, y: 195, z: -160, zoneId: 4, color: "#ec4899" },
+      { text: "Growth Chamber", x: 320, y: 155, z: 80, zoneId: 5, color: "#8b5cf6" },
+      { text: "Microscope", x: -40, y: 95, z: 80, zoneId: 6, color: "#3b82f6" },
+      { text: "Refrigerator", x: 120, y: 165, z: 80, zoneId: 6, color: "#38bdf8" },
+      { text: "Culture Racks", x: 350, y: 140, z: -160, zoneId: 4, color: "#ec4899" },
+      { text: "Laboratory Sink", x: -210, y: 90, z: -180, zoneId: 2, color: "#f59e0b" },
+      { text: "Digital Balance", x: -340, y: 85, z: 80, zoneId: 1, color: "#06b6d4" },
+      { text: "pH Meter", x: -240, y: 85, z: 80, zoneId: 1, color: "#06b6d4" }
+    ];
+
+    // ==========================================
+    // 3D CANVAS VECTOR ENGINE FOR CUTAWAY ROOM
+    // ==========================================
+    const canvas = document.getElementById('labCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let camera = { pitch: 0.44, yaw: -0.68 };
+    let cameraDistance = 1050;
+    let cameraTarget = { x: 0, y: 60, z: 0 };
+    let isDragging = false;
+    let isAutoRotating = true;
+    let lastMouse = { x: 0, y: 0 };
+    let currentLighting = 'daylight'; // 'daylight', 'uv', 'grow'
+    let selectedZoneId = null;
+    let animClock = 0;
+
+    function resizeCanvas() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width * window.devicePixelRatio;
+      canvas.height = rect.height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Mouse & Touch Controls
+    canvas.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      isAutoRotating = false;
+      updateAutoRotateUI();
+      lastMouse = { x: e.clientX, y: e.clientY };
+    });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const dx = e.clientX - lastMouse.x;
+        const dy = e.clientY - lastMouse.y;
+        camera.yaw += dx * 0.007;
+        camera.pitch = Math.max(0.12, Math.min(1.45, camera.pitch + dy * 0.007));
+        lastMouse = { x: e.clientX, y: e.clientY };
+      }
+    });
+    canvas.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      cameraDistance = Math.max(500, Math.min(1900, cameraDistance + e.deltaY * 0.9));
+    }, { passive: false });
+
+    // 3D Perspective Projection
+    function project3D(x, y, z) {
+      const cosY = Math.cos(camera.yaw);
+      const sinY = Math.sin(camera.yaw);
+      const x1 = (x - cameraTarget.x) * cosY - (z - cameraTarget.z) * sinY;
+      const z1 = (x - cameraTarget.x) * sinY + (z - cameraTarget.z) * cosY;
+
+      const cosP = Math.cos(camera.pitch);
+      const sinP = Math.sin(camera.pitch);
+      const y2 = (y - cameraTarget.y) * cosP - z1 * sinP;
+      const z2 = (y - cameraTarget.y) * sinP + z1 * cosP + cameraDistance;
+
+      const fov = 780;
+      const scale = fov / Math.max(10, z2);
+      const w = canvas.parentElement.clientWidth;
+      const h = canvas.parentElement.clientHeight;
+
+      return {
+        screenX: w / 2 + x1 * scale,
+        screenY: h / 2 - y2 * scale,
+        depth: z2,
+        scale: scale,
+        visible: z2 > 10
+      };
+    }
+
+    // Camera Presets
+    function setCamera(mode) {
+      isAutoRotating = false;
+      updateAutoRotateUI();
+      if (mode === 'isometric') {
+        camera = { pitch: 0.44, yaw: -0.68 };
+        cameraDistance = 1050;
+        cameraTarget = { x: 0, y: 60, z: 0 };
+      } else if (mode === 'front') {
+        camera = { pitch: 0.18, yaw: 0.0 };
+        cameraDistance = 900;
+        cameraTarget = { x: 0, y: 60, z: -40 };
+      } else if (mode === 'top') {
+        camera = { pitch: 1.38, yaw: 0.0 };
+        cameraDistance = 1200;
+        cameraTarget = { x: 0, y: 0, z: 0 };
+      }
+    }
+
+    function toggleAutoRotate() {
+      isAutoRotating = !isAutoRotating;
+      updateAutoRotateUI();
+    }
+
+    function updateAutoRotateUI() {
+      const btn = document.getElementById('btn-autorotate');
+      if (isAutoRotating) {
+        btn.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Auto-Rotate: ON`;
+        btn.className = "px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-medium transition flex items-center gap-1";
+      } else {
+        btn.innerHTML = `Auto-Rotate: OFF`;
+        btn.className = "px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white font-medium transition flex items-center gap-1";
+      }
+    }
+
+    // Lighting Modes
+    function setLightingMode(mode) {
+      currentLighting = mode;
+      ['daylight', 'uv', 'grow'].forEach(m => {
+        const btn = document.getElementById(`light-${m}`);
+        if (m === mode) {
+          btn.className = "px-2.5 py-1 rounded-lg bg-emerald-500 text-slate-950 font-bold transition flex items-center gap-1 shadow-md";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition flex items-center gap-1";
+        }
+      });
+    }
+
+    // ==========================================
+    // MAIN 3D RENDER LOOP
+    // ==========================================
+    let hotspotList = [];
+
+    function renderScene() {
+      animClock += 0.02;
+      if (isAutoRotating) {
+        camera.yaw += 0.0025;
+      }
+
+      const w = canvas.parentElement.clientWidth;
+      const h = canvas.parentElement.clientHeight;
+      ctx.clearRect(0, 0, w, h);
+      hotspotList = [];
+
+      // 1. Draw Cleanroom Environmental Backdrop
+      drawBackdrop(w, h);
+
+      // 2. Draw Rectangular Diorama Base Plinth
+      drawDioramaPlinth();
+
+      // 3. Draw Cutaway Cleanroom Architectural Walls & Floor
+      drawRoomArchitecture();
+
+      // 4. Draw Furniture (Workbenches, Stools, Reagent Shelves)
+      drawLabFurniture();
+
+      // 5. Draw Functional Zone Equipment
+      // Zone 1: Media Prep
+      drawMediaPrepStation(-280, 0, 80);
+      // Zone 2: Washing Sink & Autoclave
+      drawWashingAndAutoclave(-280, 0, -180);
+      // Zone 3: Laminar Air Flow Cabinet (Inoculation)
+      drawLaminarAirFlowCabinet(0, 0, -180);
+      // Zone 4: Culture Incubation Room & Racks
+      drawCultureIncubationRoom(280, 0, -160);
+      // Zone 5: Growth Chamber (Phytotron)
+      drawGrowthChamber(320, 0, 80);
+      // Zone 6: Microscope & Storage Refrigerator
+      drawMicroscopeStation(-40, 0, 80);
+      drawLaboratoryRefrigerator(120, 0, 80);
+
+      // 6. Draw 3D Pointer Labels
+      drawAll3DLabels();
+
+      requestAnimationFrame(renderScene);
+    }
+
+    // 1. Backdrop
+    function drawBackdrop(w, h) {
+      const grad = ctx.createRadialGradient(w/2, h/2, 50, w/2, h/2, Math.max(w, h));
+      if (currentLighting === 'uv') {
+        grad.addColorStop(0, '#0a0518');
+        grad.addColorStop(1, '#020108');
+      } else if (currentLighting === 'grow') {
+        grad.addColorStop(0, '#150614');
+        grad.addColorStop(1, '#050106');
+      } else {
+        grad.addColorStop(0, '#0a0f1d');
+        grad.addColorStop(0.8, '#040711');
+        grad.addColorStop(1, '#020308');
+      }
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    // 2. Diorama Plinth
+    function drawDioramaPlinth() {
+      const pw = 480, pd = 320, ph = 30;
+      const topPts = [
+        project3D(-pw, 0, -pd),
+        project3D(pw, 0, -pd),
+        project3D(pw, 0, pd),
+        project3D(-pw, 0, pd)
+      ];
+      const botPts = [
+        project3D(-pw, -ph, -pd),
+        project3D(pw, -ph, -pd),
+        project3D(pw, -ph, pd),
+        project3D(-pw, -ph, pd)
+      ];
+
+      // Plinth Shadow
+      ctx.beginPath();
+      const shPts = [
+        project3D(-pw - 30, -ph - 5, -pd - 30),
+        project3D(pw + 30, -ph - 5, -pd - 30),
+        project3D(pw + 30, -ph - 5, pd + 30),
+        project3D(-pw - 30, -ph - 5, pd + 30)
+      ];
+      ctx.moveTo(shPts[0].screenX, shPts[0].screenY);
+      for (let i = 1; i < 4; i++) ctx.lineTo(shPts[i].screenX, shPts[i].screenY);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
+      ctx.filter = 'blur(16px)';
+      ctx.fill();
+      ctx.filter = 'none';
+
+      // Plinth Faces
+      drawPolygon([topPts[3], topPts[2], botPts[2], botPts[3]], '#1e293b', '#0f172a');
+      drawPolygon([topPts[2], topPts[1], botPts[1], botPts[2]], '#0f172a', '#060a12');
+      drawPolygon([topPts[0], topPts[3], botPts[3], botPts[0]], '#1e293b', '#0f172a');
+
+      // Top Table Surface (Cleanroom Epoxy Floor)
+      ctx.beginPath();
+      ctx.moveTo(topPts[0].screenX, topPts[0].screenY);
+      for (let i = 1; i < 4; i++) ctx.lineTo(topPts[i].screenX, topPts[i].screenY);
+      ctx.closePath();
+
+      const floorGrad = ctx.createLinearGradient(topPts[0].screenX, topPts[0].screenY, topPts[2].screenX, topPts[2].screenY);
+      if (currentLighting === 'uv') {
+        floorGrad.addColorStop(0, '#1e1b4b');
+        floorGrad.addColorStop(1, '#0f0d2b');
+      } else if (currentLighting === 'grow') {
+        floorGrad.addColorStop(0, '#3b0764');
+        floorGrad.addColorStop(1, '#1f0337');
+      } else {
+        floorGrad.addColorStop(0, '#e0f2fe'); // Light sky blue seamless cleanroom epoxy
+        floorGrad.addColorStop(0.5, '#bae6fd');
+        floorGrad.addColorStop(1, '#93c5fd');
+      }
+      ctx.fillStyle = floorGrad;
+      ctx.fill();
+      ctx.strokeStyle = '#60a5fa';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Cleanroom Zoning Floor Safety Lines
+      drawFloorZoningStripes();
+    }
+
+    // Floor Zoning Stripes
+    function drawFloorZoningStripes() {
+      // Line separating clean inoculation/culture zone from washing/media zone
+      const p1 = project3D(140, 1, -300);
+      const p2 = project3D(140, 1, 300);
+      if (p1.visible && p2.visible) {
+        ctx.strokeStyle = '#eab308'; // Safety yellow floor tape
+        ctx.lineWidth = 2;
+        ctx.setLineDash([8, 8]);
+        ctx.beginPath();
+        ctx.moveTo(p1.screenX, p1.screenY);
+        ctx.lineTo(p2.screenX, p2.screenY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+
+    // 3. Cutaway Walls
+    function drawRoomArchitecture() {
+      const pw = 470, pd = 310, wallH = 200;
+
+      // Back Wall (Z = -pd)
+      const b1 = project3D(-pw, 0, -pd);
+      const b2 = project3D(pw, 0, -pd);
+      const b3 = project3D(pw, wallH, -pd);
+      const b4 = project3D(-pw, wallH, -pd);
+      drawPolygon([b1, b2, b3, b4], '#f1f5f9', '#cbd5e1');
+
+      // Left Wall (X = -pw)
+      const l1 = project3D(-pw, 0, pd);
+      const l2 = project3D(-pw, 0, -pd);
+      const l3 = project3D(-pw, wallH, -pd);
+      const l4 = project3D(-pw, wallH, pd);
+      drawPolygon([l1, l2, l3, l4], '#e2e8f0', '#94a3b8');
+
+      // Tile lines on Back Wall
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+      ctx.lineWidth = 1;
+      for (let h = 40; h < wallH; h += 40) {
+        const pA = project3D(-pw, h, -pd);
+        const pB = project3D(pw, h, -pd);
+        if (pA.visible && pB.visible) {
+          ctx.beginPath();
+          ctx.moveTo(pA.screenX, pA.screenY);
+          ctx.lineTo(pB.screenX, pB.screenY);
+          ctx.stroke();
+        }
+      }
+
+      // Suspended Ceiling Grid & LED Panel Lights
+      const c1 = project3D(-pw, wallH, -pd);
+      const c2 = project3D(pw, wallH, -pd);
+      const c3 = project3D(pw, wallH, pd * 0.4);
+      const c4 = project3D(-pw, wallH, pd * 0.4);
+      drawPolygon([c1, c2, c3, c4], 'rgba(248, 250, 252, 0.9)', 'rgba(203, 213, 225, 0.85)');
+
+      // 4 Recessed Cleanroom LED Ceiling Panels
+      const panels = [
+        { x: -200, z: -100 },
+        { x: 100, z: -100 },
+        { x: -200, z: 20 },
+        { x: 100, z: 20 }
+      ];
+      panels.forEach(pan => {
+        const pPt = project3D(pan.x, wallH - 1, pan.z);
+        if (pPt.visible) {
+          const sc = pPt.scale;
+          ctx.fillStyle = currentLighting === 'uv' ? '#818cf8' : currentLighting === 'grow' ? '#f472b6' : '#ffffff';
+          ctx.fillRect(pPt.screenX - 25 * sc, pPt.screenY - 10 * sc, 50 * sc, 20 * sc);
+          ctx.strokeStyle = '#94a3b8';
+          ctx.strokeRect(pPt.screenX - 25 * sc, pPt.screenY - 10 * sc, 50 * sc, 20 * sc);
+        }
+      });
+    }
+
+    // 4. Lab Furniture (Benches, Drawers, Stools)
+    function drawLabFurniture() {
+      // Media Prep Workbench (Left Front)
+      drawWorkbench(-280, 0, 80, 180, 70, 75);
+      // Inoculation Bench (under LAF)
+      drawWorkbench(0, 0, -180, 190, 70, 75);
+      // Microscope Bench (Center Front)
+      drawWorkbench(-40, 0, 80, 120, 70, 75);
+
+      // Lab Ergonomic Stools
+      drawLabStool(0, 0, -115);
+      drawLabStool(-280, 0, 145);
+      drawLabStool(-40, 0, 145);
+    }
+
+    function drawWorkbench(x, y, z, w, d, h) {
+      const topPts = [
+        project3D(x - w/2, h, z - d/2),
+        project3D(x + w/2, h, z - d/2),
+        project3D(x + w/2, h, z + d/2),
+        project3D(x - w/2, h, z + d/2)
+      ];
+      const botPts = [
+        project3D(x - w/2, 0, z - d/2),
+        project3D(x + w/2, 0, z - d/2),
+        project3D(x + w/2, 0, z + d/2),
+        project3D(x - w/2, 0, z + d/2)
+      ];
+
+      // Bench Cabinet Front
+      drawPolygon([topPts[3], topPts[2], botPts[2], botPts[3]], '#e2e8f0', '#cbd5e1');
+      // Bench Side
+      drawPolygon([topPts[2], topPts[1], botPts[1], botPts[2]], '#cbd5e1', '#94a3b8');
+      // Bench Chemical-Resistant Top (Charcoal / Gray Lab Phenolic Resin)
+      drawPolygon(topPts, '#334155', '#1e293b');
+
+      // Drawer handles
+      const frontCenter = project3D(x, h * 0.6, z + d/2 + 1);
+      if (frontCenter.visible) {
+        ctx.fillStyle = '#64748b';
+        ctx.fillRect(frontCenter.screenX - 20 * frontCenter.scale, frontCenter.screenY, 40 * frontCenter.scale, 3 * frontCenter.scale);
+      }
+    }
+
+    function drawLabStool(x, y, z) {
+      const basePt = project3D(x, y, z);
+      const seatPt = project3D(x, y + 45, z);
+      if (!basePt.visible) return;
+
+      const sc = basePt.scale;
+      // Stool base 5-star legs & center post
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 2 * sc;
+      ctx.beginPath();
+      ctx.moveTo(basePt.screenX, basePt.screenY);
+      ctx.lineTo(seatPt.screenX, seatPt.screenY);
+      ctx.stroke();
+
+      // Padded Round Seat (Blue vinyl)
+      ctx.fillStyle = '#0284c7';
+      ctx.beginPath();
+      ctx.ellipse(seatPt.screenX, seatPt.screenY, 14 * sc, 7 * sc, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#0369a1';
+      ctx.stroke();
+    }
+
+    // ==========================================
+    // 5. ZONE EQUIPMENT RENDERING ROUTINES
+    // ==========================================
+
+    // ZONE 1: MEDIA PREPARATION AREA
+    function drawMediaPrepStation(x, y, z) {
+      const pt = project3D(x, 75, z);
+      if (!pt.visible) return;
+      const sc = pt.scale;
+
+      // 1. Digital Analytical Balance with Glass Shield (Left)
+      const balX = pt.screenX - 55 * sc;
+      const balY = pt.screenY - 10 * sc;
+      // Base
+      ctx.fillStyle = '#f8fafc';
+      ctx.strokeStyle = '#475569';
+      ctx.fillRect(balX - 16 * sc, balY - 10 * sc, 32 * sc, 10 * sc);
+      ctx.strokeRect(balX - 16 * sc, balY - 10 * sc, 32 * sc, 10 * sc);
+      // Draft shield (clear glass)
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.fillRect(balX - 14 * sc, balY - 36 * sc, 28 * sc, 26 * sc);
+      ctx.strokeStyle = '#94a3b8';
+      ctx.strokeRect(balX - 14 * sc, balY - 36 * sc, 28 * sc, 26 * sc);
+      // Weighing pan & LCD
+      ctx.fillStyle = '#10b981';
+      ctx.fillRect(balX - 8 * sc, balY - 6 * sc, 16 * sc, 4 * sc);
+
+      // 2. Digital pH Meter with Electrode Arm (Center)
+      const phX = pt.screenX - 10 * sc;
+      const phY = pt.screenY - 8 * sc;
+      // Console
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(phX - 12 * sc, phY - 12 * sc, 24 * sc, 12 * sc);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = `bold ${Math.max(7, Math.floor(7 * sc))}px monospace`;
+      ctx.fillText("5.78", phX - 8 * sc, phY - 3 * sc);
+      // Arm & Electrode into beaker
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 1.5 * sc;
+      ctx.beginPath();
+      ctx.moveTo(phX + 5 * sc, phY - 10 * sc);
+      ctx.lineTo(phX + 18 * sc, phY - 26 * sc);
+      ctx.lineTo(phX + 26 * sc, phY - 14 * sc);
+      ctx.stroke();
+
+      // 3. Magnetic Stirrer & Hotplate with Flask (Right)
+      const stirX = pt.screenX + 35 * sc;
+      const stirY = pt.screenY - 8 * sc;
+      // White ceramic top hotplate
+      ctx.fillStyle = '#e2e8f0';
+      ctx.fillRect(stirX - 15 * sc, stirY - 10 * sc, 30 * sc, 10 * sc);
+      ctx.strokeStyle = '#475569';
+      ctx.strokeRect(stirX - 15 * sc, stirY - 10 * sc, 30 * sc, 10 * sc);
+      // Erlenmeyer Flask with amber MS medium & spinning vortex
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.beginPath();
+      ctx.moveTo(stirX - 10 * sc, stirY - 10 * sc);
+      ctx.lineTo(stirX + 10 * sc, stirY - 10 * sc);
+      ctx.lineTo(stirX + 3 * sc, stirY - 32 * sc);
+      ctx.lineTo(stirX - 3 * sc, stirY - 32 * sc);
+      ctx.closePath();
+      ctx.fill();
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.stroke();
+      // Amber liquid inside
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.7)';
+      ctx.fillRect(stirX - 8 * sc, stirY - 18 * sc, 16 * sc, 8 * sc);
+
+      // Micropipette carousel stand on back
+      const pipX = pt.screenX + 65 * sc;
+      const pipY = pt.screenY - 20 * sc;
+      ctx.fillStyle = '#64748b';
+      ctx.fillRect(pipX - 2 * sc, pipY - 25 * sc, 4 * sc, 25 * sc);
+      ctx.fillStyle = '#ef4444'; // pipette 1
+      ctx.fillRect(pipX - 8 * sc, pipY - 22 * sc, 3 * sc, 18 * sc);
+      ctx.fillStyle = '#3b82f6'; // pipette 2
+      ctx.fillRect(pipX + 5 * sc, pipY - 22 * sc, 3 * sc, 18 * sc);
+    }
+
+    // ZONE 2: WASHING SINK & AUTOCLAVE
+    function drawWashingAndAutoclave(x, y, z) {
+      // 1. Heavy Duty Laboratory Sink Unit
+      const sinkPt = project3D(x - 70, 75, z + 60);
+      if (sinkPt.visible) {
+        const sc = sinkPt.scale;
+        // Sink basin
+        ctx.fillStyle = '#1e293b';
+        ctx.fillRect(sinkPt.screenX - 25 * sc, sinkPt.screenY - 15 * sc, 50 * sc, 20 * sc);
+        ctx.strokeStyle = '#475569';
+        ctx.strokeRect(sinkPt.screenX - 25 * sc, sinkPt.screenY - 15 * sc, 50 * sc, 20 * sc);
+        // Chrome Gooseneck Water Tap
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 2.5 * sc;
+        ctx.beginPath();
+        ctx.moveTo(sinkPt.screenX, sinkPt.screenY - 15 * sc);
+        ctx.lineTo(sinkPt.screenX, sinkPt.screenY - 38 * sc);
+        ctx.arc(sinkPt.screenX - 8 * sc, sinkPt.screenY - 38 * sc, 8 * sc, 0, Math.PI, true);
+        ctx.lineTo(sinkPt.screenX - 16 * sc, sinkPt.screenY - 30 * sc);
+        ctx.stroke();
+
+        // Pegboard Drying Rack on back wall
+        ctx.fillStyle = '#334155';
+        ctx.fillRect(sinkPt.screenX - 20 * sc, sinkPt.screenY - 80 * sc, 40 * sc, 35 * sc);
+      }
+
+      // 2. Vertical Autoclave Cylinder
+      const autoPt = project3D(x, 0, z);
+      if (autoPt.visible) {
+        const sc = autoPt.scale;
+        const rad = 32 * sc;
+        const h = 110 * sc;
+
+        // Stainless Cylindrical Body
+        const autoGrad = ctx.createLinearGradient(autoPt.screenX - rad, 0, autoPt.screenX + rad, 0);
+        autoGrad.addColorStop(0, '#64748b');
+        autoGrad.addColorStop(0.3, '#f8fafc');
+        autoGrad.addColorStop(0.7, '#94a3b8');
+        autoGrad.addColorStop(1, '#334155');
+
+        ctx.fillStyle = autoGrad;
+        ctx.beginPath();
+        ctx.roundRect(autoPt.screenX - rad, autoPt.screenY - h, rad * 2, h, 8);
+        ctx.fill();
+        ctx.strokeStyle = '#475569';
+        ctx.stroke();
+
+        // Dome Lid & Pressure Gauge
+        ctx.beginPath();
+        ctx.ellipse(autoPt.screenX, autoPt.screenY - h, rad, rad * 0.35, 0, 0, Math.PI * 2);
+        ctx.fillStyle = '#cbd5e1';
+        ctx.fill();
+        ctx.stroke();
+
+        // Gauge Dial
+        const gx = autoPt.screenX;
+        const gy = autoPt.screenY - h - 14 * sc;
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(gx, gy, 8 * sc, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#0f172a';
+        ctx.stroke();
+        // Needle
+        ctx.strokeStyle = '#ef4444';
+        ctx.beginPath();
+        ctx.moveTo(gx, gy);
+        ctx.lineTo(gx + 5 * sc, gy - 3 * sc);
+        ctx.stroke();
+      }
+    }
+
+    // ZONE 3: LAMINAR AIR FLOW CABINET (INOCULATION)
+    function drawLaminarAirFlowCabinet(x, y, z) {
+      const pt = project3D(x, 75, z);
+      if (!pt.visible) return;
+      const sc = pt.scale;
+      const w = 140 * sc;
+      const h = 145 * sc;
+      const sx = pt.screenX - w/2;
+      const sy = pt.screenY - h;
+
+      // Outer Hood Body (Cleanroom White)
+      ctx.fillStyle = '#f8fafc';
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(sx, sy, w, h, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      // Top Filter Section (HEPA)
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(sx + 8 * sc, sy + 8 * sc, w - 16 * sc, 28 * sc);
+      ctx.strokeStyle = '#64748b';
+      ctx.strokeRect(sx + 8 * sc, sy + 8 * sc, w - 16 * sc, 28 * sc);
+
+      // Interior Work Chamber (Stainless Bed)
+      const bedX = sx + 10 * sc;
+      const bedY = sy + 40 * sc;
+      const bedW = w - 20 * sc;
+      const bedH = h - 48 * sc;
+
+      ctx.fillStyle = currentLighting === 'uv' ? '#2e1065' : '#0f172a';
+      ctx.fillRect(bedX, bedY, bedW, bedH);
+
+      // Stainless work floor
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillRect(bedX, bedY + bedH - 8 * sc, bedW, 8 * sc);
+
+      // Spirit lamp flame
+      const flX = bedX + bedW * 0.7;
+      const flY = bedY + bedH - 18 * sc;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+      ctx.fillRect(flX - 6 * sc, flY + 4 * sc, 12 * sc, 12 * sc);
+      // Flame flicker
+      const flick = Math.sin(animClock * 9) * 2;
+      ctx.fillStyle = '#38bdf8';
+      ctx.beginPath();
+      ctx.moveTo(flX - 2 * sc, flY + 3 * sc);
+      ctx.quadraticCurveTo(flX + flick, flY - 9 * sc, flX + 2 * sc, flY + 3 * sc);
+      ctx.fill();
+
+      // Transparent Front Sash Glass
+      ctx.fillStyle = currentLighting === 'uv' ? 'rgba(168, 85, 247, 0.3)' : 'rgba(148, 163, 184, 0.25)';
+      ctx.fillRect(bedX, bedY, bedW, bedH * 0.6);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.strokeRect(bedX, bedY, bedW, bedH * 0.6);
+
+      // Forceps & Petri dishes on bench
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.beginPath();
+      ctx.ellipse(bedX + 25 * sc, bedY + bedH - 6 * sc, 10 * sc, 5 * sc, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // ZONE 4: CULTURE INCUBATION ROOM & RACKS
+    function drawCultureIncubationRoom(x, y, z) {
+      const pt = project3D(x, 0, z);
+      if (!pt.visible) return;
+      const sc = pt.scale;
+      const rw = 150 * sc;
+      const rh = 175 * sc;
+      const sx = pt.screenX - rw/2;
+      const sy = pt.screenY - rh;
+
+      // Partitioned Glass Door/Frame on left of culture room
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2 * sc;
+      ctx.strokeRect(sx, sy, rw, rh);
+      ctx.fillStyle = 'rgba(14, 165, 233, 0.08)';
+      ctx.fillRect(sx, sy, rw, rh);
+
+      // Multi-tier Culture Rack (4 shelves)
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 2.5 * sc;
+      ctx.strokeRect(sx + 15 * sc, sy + 15 * sc, rw - 30 * sc, rh - 25 * sc);
+
+      const shelfTiers = [0.25, 0.5, 0.75];
+      shelfTiers.forEach(t => {
+        const shY = sy + 15 * sc + (rh - 25 * sc) * t;
+        // Shelf bar
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillRect(sx + 15 * sc, shY, rw - 30 * sc, 5 * sc);
+
+        // LED Strip (Pink/Magenta grow lights)
+        ctx.fillStyle = currentLighting === 'daylight' ? '#f43f5e' : '#ec4899';
+        ctx.fillRect(sx + 18 * sc, shY + 5 * sc, rw - 36 * sc, 3 * sc);
+
+        // Ambient grow glow
+        const glowGrad = ctx.createLinearGradient(0, shY, 0, shY + 30 * sc);
+        glowGrad.addColorStop(0, 'rgba(236, 72, 153, 0.35)');
+        glowGrad.addColorStop(1, 'rgba(236, 72, 153, 0.0)');
+        ctx.fillStyle = glowGrad;
+        ctx.fillRect(sx + 18 * sc, shY + 8 * sc, rw - 36 * sc, 25 * sc);
+
+        // Rows of Culture Bottles with Agar and Green Plantlets
+        for (let b = 0; b < 4; b++) {
+          const bx = sx + 25 * sc + b * 24 * sc;
+          const by = shY - 20 * sc;
+          // Glass jar
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+          ctx.fillRect(bx, by, 14 * sc, 20 * sc);
+          // Yellow MS Agar
+          ctx.fillStyle = '#f59e0b';
+          ctx.fillRect(bx + 1, by + 14 * sc, 12 * sc, 6 * sc);
+          // Growing Green Plantlet
+          ctx.fillStyle = '#22c55e';
+          ctx.fillRect(bx + 5 * sc, by + 4 * sc, 4 * sc, 10 * sc);
+          // Blue cap
+          ctx.fillStyle = '#0284c7';
+          ctx.fillRect(bx - 1, by - 3 * sc, 16 * sc, 3 * sc);
+        }
+      });
+    }
+
+    // ZONE 5: GROWTH CHAMBER (PHYTOTRON)
+    function drawGrowthChamber(x, y, z) {
+      const pt = project3D(x, 0, z);
+      if (!pt.visible) return;
+      const sc = pt.scale;
+      const w = 110 * sc;
+      const h = 160 * sc;
+      const sx = pt.screenX - w/2;
+      const sy = pt.screenY - h;
+
+      // Insulated Steel Body
+      ctx.fillStyle = '#1e293b';
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(sx, sy, w, h, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      // Glass viewing door
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+      ctx.fillRect(sx + 10 * sc, sy + 38 * sc, w - 20 * sc, h - 48 * sc);
+      ctx.strokeStyle = '#38bdf8';
+      ctx.strokeRect(sx + 10 * sc, sy + 38 * sc, w - 20 * sc, h - 48 * sc);
+
+      // Digital Control Readout at top: 25.0°C | 65% RH
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(sx + 10 * sc, sy + 8 * sc, w - 20 * sc, 22 * sc);
+      ctx.fillStyle = '#10b981';
+      ctx.font = `bold ${Math.max(8, Math.floor(8.5 * sc))}px monospace`;
+      ctx.fillText("25.0°C  65%RH", sx + 14 * sc, sy + 23 * sc);
+    }
+
+    // ZONE 6: MICROSCOPE & REFRIGERATOR
+    function drawMicroscopeStation(x, y, z) {
+      const pt = project3D(x, 75, z);
+      if (!pt.visible) return;
+      const sc = pt.scale;
+
+      // Heavy Horseshoe Base
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.ellipse(pt.screenX, pt.screenY - 4 * sc, 12 * sc, 6 * sc, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Curved Arm & Stage
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 3.5 * sc;
+      ctx.beginPath();
+      ctx.moveTo(pt.screenX - 4 * sc, pt.screenY - 4 * sc);
+      ctx.lineTo(pt.screenX - 4 * sc, pt.screenY - 26 * sc);
+      ctx.lineTo(pt.screenX + 2 * sc, pt.screenY - 32 * sc);
+      ctx.stroke();
+
+      // Mechanical Stage
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(pt.screenX - 10 * sc, pt.screenY - 18 * sc, 20 * sc, 3 * sc);
+
+      // Revolving Nosepiece & Objectives
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillRect(pt.screenX - 2 * sc, pt.screenY - 28 * sc, 8 * sc, 8 * sc);
+
+      // Binocular Eyepieces
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 2.5 * sc;
+      ctx.beginPath();
+      ctx.moveTo(pt.screenX + 2 * sc, pt.screenY - 32 * sc);
+      ctx.lineTo(pt.screenX + 8 * sc, pt.screenY - 44 * sc);
+      ctx.moveTo(pt.screenX + 2 * sc, pt.screenY - 32 * sc);
+      ctx.lineTo(pt.screenX - 4 * sc, pt.screenY - 44 * sc);
+      ctx.stroke();
+    }
+
+    function drawLaboratoryRefrigerator(x, y, z) {
+      const pt = project3D(x, 0, z);
+      if (!pt.visible) return;
+      const sc = pt.scale;
+      const w = 70 * sc;
+      const h = 150 * sc;
+      const sx = pt.screenX - w/2;
+      const sy = pt.screenY - h;
+
+      // Clean White Fridge Body
+      ctx.fillStyle = '#f8fafc';
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(sx, sy, w, h, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      // Top Freezer / Bottom Fridge Split line
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(sx, sy + h * 0.35);
+      ctx.lineTo(sx + w, sy + h * 0.35);
+      ctx.stroke();
+
+      // Chrome Door Handles
+      ctx.fillStyle = '#64748b';
+      ctx.fillRect(sx + w - 8 * sc, sy + 15 * sc, 3 * sc, 25 * sc);
+      ctx.fillRect(sx + w - 8 * sc, sy + h * 0.42, 3 * sc, 35 * sc);
+
+      // Digital Temp LED: 4°C
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(sx + 10 * sc, sy + 8 * sc, 20 * sc, 10 * sc);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = `bold ${Math.max(7, Math.floor(7 * sc))}px monospace`;
+      ctx.fillText("+4°C", sx + 12 * sc, sy + 16 * sc);
+    }
+
+    // 6. Draw 3D Labels
+    function drawAll3DLabels() {
+      labels3D.forEach(lbl => {
+        const pt = project3D(lbl.x, lbl.y, lbl.z);
+        if (!pt.visible) return;
+
+        if (lbl.type === "title") {
+          // Main Title Banner
+          ctx.save();
+          ctx.font = `bold ${Math.max(11, Math.floor(13 * pt.scale))}px Inter, sans-serif`;
+          const tw = ctx.measureText(lbl.text).width + 24;
+          ctx.fillStyle = 'rgba(6, 78, 59, 0.9)';
+          ctx.strokeStyle = '#34d399';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(pt.screenX - tw/2, pt.screenY - 14, tw, 28, 8);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = '#34d399';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.shadowColor = '#10b981';
+          ctx.shadowBlur = 10;
+          ctx.fillText(lbl.text, pt.screenX, pt.screenY);
+          ctx.restore();
+        } else {
+          // Equipment Pointer Pin
+          drawPointerPin(pt.screenX, pt.screenY, lbl.text, lbl.color, lbl.zoneId);
+        }
+      });
+    }
+
+    function drawPointerPin(x, y, text, color, zoneId) {
+      ctx.save();
+      ctx.font = 'bold 9.5px Inter, sans-serif';
+      const tw = ctx.measureText(text).width + 16;
+      const th = 20;
+
+      // Pin Anchor Dot
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x, y + 15, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Pin stem
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(x, y + 15);
+      ctx.lineTo(x, y + 4);
+      ctx.stroke();
+
+      // Pin Badge
+      ctx.fillStyle = selectedZoneId === zoneId ? '#047857' : 'rgba(15, 23, 42, 0.9)';
+      ctx.strokeStyle = selectedZoneId === zoneId ? '#34d399' : color;
+      ctx.lineWidth = selectedZoneId === zoneId ? 2 : 1;
+      ctx.beginPath();
+      ctx.roundRect(x - tw/2, y - th + 4, tw, th, 5);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, x, y - th/2 + 4);
+      ctx.restore();
+
+      // Register click hotspot
+      hotspotList.push({ x: x, y: y, radius: tw/2, zoneId: zoneId, name: text });
+    }
+
+    // Helper: Draw Polygons
+    function drawPolygon(pts, fillTop, fillBot) {
+      if (pts.some(p => !p.visible)) return;
+      ctx.beginPath();
+      ctx.moveTo(pts[0].screenX, pts[0].screenY);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].screenX, pts[i].screenY);
+      ctx.closePath();
+      const grad = ctx.createLinearGradient(pts[0].screenX, pts[0].screenY, pts[pts.length - 1].screenX, pts[pts.length - 1].screenY);
+      grad.addColorStop(0, fillTop);
+      grad.addColorStop(1, fillBot);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.25)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Canvas Click Hotspots
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
+
+      for (let i = hotspotList.length - 1; i >= 0; i--) {
+        const h = hotspotList[i];
+        if (Math.hypot(mx - h.x, my - h.y) <= h.radius) {
+          if (h.zoneId) focusZone(h.zoneId);
+          return;
+        }
+      }
+    });
+
+    // ==========================================
+    // UI INSPECTOR & ZONE FOCUS
+    // ==========================================
+    function focusZone(zoneId) {
+      selectedZoneId = zoneId;
+      isAutoRotating = false;
+      updateAutoRotateUI();
+
+      const z = zonesData.find(item => item.id === zoneId);
+      if (!z) return;
+
+      // Pan camera toward zone
+      cameraTarget = { x: z.x * 0.7, y: 50, z: z.z * 0.7 };
+
+      // Update zone buttons UI
+      document.querySelectorAll('.zone-btn').forEach(btn => {
+        if (parseInt(btn.getAttribute('data-zone')) === zoneId) {
+          btn.className = "zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 transition shrink-0 shadow-lg";
+        } else {
+          btn.className = "zone-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 transition shrink-0";
+        }
+      });
+
+      // Update Inspector Panel
+      document.getElementById('inspect-title').innerText = `${z.badge}: ${z.title}`;
+      document.getElementById('inspect-subtitle').innerText = `Cleanroom Classification: ${z.cleanliness}`;
+
+      document.getElementById('inspect-body').innerHTML = `
+        <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/80 space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Zone Purpose</span>
+          <p class="text-xs text-slate-200 leading-relaxed">${z.summary}</p>
+        </div>
+
+        <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Key Equipment in this Zone</span>
+          <ul class="space-y-1.5 text-xs text-slate-300">
+            ${z.equipment.map(eq => `<li class="flex items-center gap-1.5"><span class="text-emerald-400">▪</span> ${eq}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="bg-slate-800/40 rounded-xl p-4 border border-slate-700/40 space-y-1.5">
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Standard Operating Protocol (SOP)</span>
+          <p class="text-xs text-slate-300 leading-relaxed font-mono">${z.sop}</p>
+        </div>
+      `;
+
+      const nextZ = zoneId < 6 ? zoneId + 1 : 1;
+      document.getElementById('inspect-action').innerHTML = `
+        <button onclick="focusZone(${nextZ})" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition flex items-center justify-center gap-2">
+          Proceed to Zone ${nextZ} (${zonesData[nextZ-1].title.split(' ')[0]}) &rarr;
+        </button>
+      `;
+    }
+
+    // Facility Tour
+    let tourStep = 1;
+    let tourTimer = null;
+    function startFacilityTour() {
+      tourStep = 1;
+      focusZone(tourStep);
+      clearInterval(tourTimer);
+      tourTimer = setInterval(() => {
+        tourStep++;
+        if (tourStep > 6) {
+          clearInterval(tourTimer);
+          setCamera('isometric');
+          return;
+        }
+        focusZone(tourStep);
+      }, 4500);
+    }
+
+    // Main Navigation Tabs
+    function switchMainTab(tabName) {
+      const tabs = ['diorama', 'renders', 'zones', 'equipment', 'blueprint'];
+      tabs.forEach(t => {
+        const panel = document.getElementById(`panel-${t}`);
+        const navBtn = document.getElementById(`nav-${t}`);
+        if (t === tabName) {
+          panel.classList.remove('hidden');
+          navBtn.className = "px-3.5 py-1.5 rounded-lg font-bold bg-emerald-500 text-slate-950 shadow-md transition flex items-center gap-1.5";
+        } else {
+          panel.classList.add('hidden');
+          navBtn.className = "px-3.5 py-1.5 rounded-lg font-medium text-slate-300 hover:text-white transition flex items-center gap-1.5";
+        }
+      });
+
+      if (tabName === 'diorama') {
+        resizeCanvas();
+      }
+    }
+
+    // Populate Grids
+    function populateInfoGrids() {
+      // 1. Zones Grid
+      const zg = document.getElementById('zones-full-grid');
+      zg.innerHTML = zonesData.map(z => `
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/40 transition space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">${z.badge}</span>
+            <span class="text-xs text-slate-400 font-mono">${z.cleanliness}</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">${z.title}</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">${z.summary}</p>
+          <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 space-y-2 text-xs">
+            <span class="text-slate-400 font-bold block uppercase tracking-wider text-[10px]">Equipment Inventory:</span>
+            <ul class="space-y-1 text-slate-300">
+              ${z.equipment.map(e => `<li>• ${e}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="text-xs text-amber-200/90 bg-amber-950/20 p-3 rounded-lg border border-amber-500/20 leading-relaxed">
+            <strong>Standard Protocol:</strong> ${z.sop}
+          </div>
+        </div>
+      `).join('');
+
+      // 2. Equipment Grid
+      const eg = document.getElementById('equipment-full-grid');
+      eg.innerHTML = equipmentCatalog.map(eq => `
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-cyan-500/40 transition space-y-3 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-3xl">${eq.icon}</span>
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded border border-cyan-500/20">${eq.zone}</span>
+            </div>
+            <h3 class="text-base font-bold text-white">${eq.name}</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">${eq.desc}</p>
+          </div>
+          <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 text-[11px] font-mono text-slate-300 mt-2">
+            ${eq.specs}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.onload = () => {
+      populateInfoGrids();
+      renderScene();
+    };
+  </script>
+</body>
+</html>
